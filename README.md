@@ -65,8 +65,9 @@ To import the source code into Eclipse/WDT:
   *  To create the actual database, remotely connect to your machine hosting WebSphere Classic using SSH. 
     *  Navigate to ${WAS_INSTALL_ROOT}/derby/bin/embedded/ 
     *  Run "./ij.sh". When you see the prompt "ij>", enter the following command: 
+        
         ```bash
-        connect 'jdbc:derby:DefaultDB;create=true';
+        $ connect 'jdbc:derby:DefaultDB;create=true';
         ```
     * The default Derby database is created in the following directory: ${WAS_INSTALL_ROOT}/derby/DefaultDB
 
