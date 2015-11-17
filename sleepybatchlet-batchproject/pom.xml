@@ -11,18 +11,6 @@
     <artifactId>sleepybatchlet-batchproject</artifactId>
     <packaging>jar</packaging>
 
-    <build>
-        <sourceDirectory>src</sourceDirectory>
-        <resources>
-            <resource>
-                <directory>src</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-        </resources>
-    </build>
-
     <dependencies>
         <dependency>
             <groupId>javax.batch</groupId>
