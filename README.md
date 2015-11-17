@@ -33,12 +33,14 @@ Installing WDT on Eclipse is as simple as a drag-and-drop, but the process is ex
 
 [wasdev-wdt]: https://developer.ibm.com/wasdev/downloads/liberty-profile-using-eclipse/
 
+To import the source code into Eclipse/WDT:
+
 1. In the Enterprise Explorer view, right click and select Import -> Existing Maven Projects
 2. Browse... to the top level directory titled sample.javaee7.sleepybatchlet
 3. Verfiy all three boxes are checked and select Finish
 
 
-## Manual Deployment
+### Manual Deployment
 
 
 1. Add batch-1.0 to your server.xml.
