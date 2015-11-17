@@ -45,7 +45,7 @@ To import the source code into Eclipse/WDT:
 
 1. Add batch-1.0 to your server.xml.
 
-2. Install the sample app to your server by copying sample.javaee7.sleepybatchlet.war (exported from Eclipse) into the server's dropins/ directory or right clicking on the server in WDT and adding through Add/Remove.
+2. Install the sample app to your server by copying sample.javaee7.sleepybatchlet.war that was made from running mvn install
 
 3. Start the server.
 
@@ -84,7 +84,7 @@ To import the source code into Eclipse/WDT:
 2. Log in with your user name and password. 
 3. Select Applications > New Application. 
 4. Select the New Enterprise Application link. 
-5. Using the Local file system option, click Browse, and select the war file that you downloaded from GitHub. 
+5. Using the Local file system option, click Browse, and select the war file that you built using Maven. 
 6. Click Next to follow the wizard using the default options, until the Finish button is displayed. 
 7. When the Confirm changes section is displayed, click Save. 
 8. Click Applications > Application Types > WebSphere enterprise applications. 
