@@ -4,9 +4,23 @@ SleepyBatchlet is a simple sample batchlet for use with the Batch Programming Mo
 
 The batchlet itself is rather uninteresting. All it does is sleep in 1 second increments for a default time of 15 seconds.  The sleep time is configurable via batch property *sleep.time.seconds*.  The batchlet prints a message to System.out each second, so you can easily verify that it's running.
 
-## Build the sample
+## WAS Liberty
 
-### Eclipse / WDT
+### Maven
+
+The sample can be built using [Apache Maven](http://maven.apache.org/).  In the directory where you cloned the repository issue the following command to build the source.
+
+```bash
+$ mvn install
+```
+
+Then, in the sleepybatchlet-webapp directory issue the following command to run it on a liberty server.
+
+```bash
+$ mvn liberty:run-server
+```
+
+### WebSphere Development Tools (WDT)
 
 The WebSphere Development Tools (WDT) for Eclipse can be used to control the server (start/stop/dump/etc.), it also supports incremental publishing with minimal restarts, working with a debugger to step through your applications, etc.
 
@@ -19,39 +33,40 @@ Installing WDT on Eclipse is as simple as a drag-and-drop, but the process is ex
 
 [wasdev-wdt]: https://developer.ibm.com/wasdev/downloads/liberty-profile-using-eclipse/
 
-### Import projects into WDT
-
-1. In the Enterprise Explorer view, right click and select Import -> WAR file 
-2. Browse... to the war file 
-3. Uncheck “Add project to an EAR”
-4. Select Next
-5. Check “SleepyBatchletBatchProject”
-6. Select Finish
+1. In the Enterprise Explorer view, right click and select Import -> Existing Maven Projects
+2. Browse... to the top level directory titled sample.javaee7.sleepybatchlet
+3. Verfiy all three boxes are checked and select Finish
 
 
-## Install and run the sample on Liberty
+## Manual Deployment
+
 
 1. Add batch-1.0 to your server.xml.
 
-2. Install the sample app to your server by copying sample.javaee7.sleepybatchlet.war into the server's dropins/ directory or right clicking on the server in WDT and adding through Add/Remove.
+2. Install the sample app to your server by copying sample.javaee7.sleepybatchlet.war (exported from Eclipse) into the server's dropins/ directory or right clicking on the server in WDT and adding through Add/Remove.
 
-3. Run the sample by hitting the following URL using your servers hostname and port
+3. Start the server.
+
+4. Run the sample by hitting the following URL using your servers hostname and port
 
     http://hostname:port/sample.javaee7.sleepybatchlet/
 
 
-## Install and run the sample on Classic
+## WAS Classic
 
 ### Configure required resources
 
-1. Verify that a Derby JDBC Provider instances exists. In the administrative console, click Resources > JDBC > JDBC providers.
-  * If that provider does not exist, create one with a Connection pool datasource implementation type, and point to the Derby .jar file; for example: ${WAS_INSTALL_ROOT}/derby/lib 
+1. Verify that a Derby JDBC Provider instance exists. In the administrative console, click Resources > JDBC > JDBC providers.
+  * If that provider does not exist, create one with a Connection pool datasource implementation type, and point to the Derby.jar file; for example: ${WAS_INSTALL_ROOT}/derby/lib 
 2. Verify that a Default datasource instance is configured. Click Resources > JDBC > Data sources. 
-  *  (Administrative console) If that datasource does not exist, create one with the name Default datasource and the JNDI name DefaultDatasource that points to the Derby JDBC Provider and "${WAS_INSTALL_ROOT}/derby/DefaultDB" database. 
-  *  (Command line) Remotely connect your virtual machine with the WebSphere environment using SSH. 
-    *  Navigate to ${WAS_INSTALL_ROOT}/derby/bin/embedded/. 
-    *  Run ./ij.sh. When you see the prompt ij>, enter the following command: connect 'jdbc:derby:DefaultDB;create=true';
-                                * The default Derby database is created in the following directory: ${WAS_INSTALL_ROOT}/derby/DefaultDB
+  *  If that datasource does not exist, create one with the name "Default datasource" and the JNDI name "DefaultDatasource" that points to the Derby JDBC Provider and "${WAS_INSTALL_ROOT}/derby/DefaultDB" database. 
+  *  To create the actual database, remotely connect to your machine hosting WebSphere Classic using SSH. 
+    *  Navigate to ${WAS_INSTALL_ROOT}/derby/bin/embedded/ 
+    *  Run "./ij.sh". When you see the prompt "ij>", enter the following command: 
+        ```bash
+        connect 'jdbc:derby:DefaultDB;create=true';
+        ```
+    * The default Derby database is created in the following directory: ${WAS_INSTALL_ROOT}/derby/DefaultDB
 
 3. Add JVM arguments to the server running the batch sample. 
   * Click Servers > Server Types > WebSphere application servers > server_name > Java and Process Management > Process definition > Java Virtual Machine > Custom properties. 
