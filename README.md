@@ -14,7 +14,7 @@ The sample can be built using [Apache Maven](http://maven.apache.org/).  In the 
 $ mvn install
 ```
 
-Then, in the sleepybatchlet-webapp directory issue the following command to run it on a liberty server.
+Then, in the sleepybatchlet-webapp directory issue the following command to run it on a Liberty server.
 
 ```bash
 $ mvn liberty:run-server
