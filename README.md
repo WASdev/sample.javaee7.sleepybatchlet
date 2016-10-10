@@ -56,7 +56,7 @@ To import the source code into Eclipse/WDT:
 
 ## WAS Traditional
 
-**Note**: In WebSphere Application Server traditional the support for JSR 352 is limited to an in-memory (non-persistent) job respository.
+**Note**: In WebSphere Application Server traditional the support for JSR 352 is limited to an in-memory (non-persistent) job repository.
 
 ### Install using the Administrative Console
 1. In your preferred browser, go to the Integrated Solutions Console; for example: http://hostname:9060/ibm/console/ 
